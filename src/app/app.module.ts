@@ -7,9 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatListModule } from '@angular/material/list';
 
+import { UsersListComponent } from './users-list/users-list.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'jsexpert-angular';
-  listOfUsers: string[] = ['John', 'Clark', 'Lorene', 'Mike', 'Scooter', 'Zak'];
+  appName = 'Users List';
 }
