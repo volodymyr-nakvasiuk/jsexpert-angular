@@ -2,9 +2,17 @@
 <p></p>
 
 <mat-selection-list #users>
-  <mat-list-option *ngFor="let user of usersList">
-    <span>{{user.username}}</span>
-    <span>{{user.name}}</span>
+  <mat-list-option
+    *ngFor="let user of usersList; let i = index"
+    [ngClass]="{'grey': i%2}"
+  >
+    <div class="user">
+      <span class="user-field">
+        <span *ngIf="user.username.indexOf('_') == -1">{{user.username}}</span>
+      </span>
+      <span class="user-field">{{user.name}}</span>
+      <span class="user-field" [ngClass]="{'primary': user.role=='Admin'}">{{user.role}}</span>
+    </div>
   </mat-list-option>
 </mat-selection-list>
 
