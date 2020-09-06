@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 import {User} from './shared/models/user.model';
 
@@ -7,7 +7,8 @@ import {User} from './shared/models/user.model';
 })
 export class UsersService {
 
-  constructor() { }
+  constructor() {
+  }
 
   usersList: User[] = [
     {
@@ -106,7 +107,10 @@ export class UsersService {
     }
   ];
 
-  getUsersList(): User[] {
-    return this.usersList;
+  getUsersList(order: number, filter: string): User[] {
+    filter = filter.toLocaleLowerCase();
+    return this.usersList
+      .filter(user => user.name.toLocaleLowerCase().includes(filter))
+      .sort((user1, user2) => order * (user1.username > user2.username ? 1 : -1));
   }
 }

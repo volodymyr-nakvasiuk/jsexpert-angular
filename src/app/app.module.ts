@@ -5,7 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 
 import { UsersListComponent } from './users-list/users-list.component';
 
@@ -18,7 +21,10 @@ import { UsersListComponent } from './users-list/users-list.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatListModule
+    FormsModule,
+    MatListModule,
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

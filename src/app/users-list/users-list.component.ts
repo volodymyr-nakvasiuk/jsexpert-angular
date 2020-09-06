@@ -15,7 +15,15 @@ export class UsersListComponent implements OnInit {
 
   usersList: User[];
 
+  orderDirection = '1';
+
+  nameFilter = '';
+
   ngOnInit(): void {
-    this.usersList = this.userService.getUsersList();
+    this.filterUsers();
+  }
+
+  filterUsers(): void {
+    this.usersList = this.userService.getUsersList(+this.orderDirection, this.nameFilter);
   }
 }
