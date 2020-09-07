@@ -39,6 +39,10 @@
   </button>
 </div>
 
+<div *ngIf="usersList.length == 0" class="line">
+  <mat-error>No Users found</mat-error>
+</div>
+
 <mat-selection-list #users>
   <mat-list-option
     *ngFor="let user of usersList; let i = index"
