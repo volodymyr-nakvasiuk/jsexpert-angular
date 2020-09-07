@@ -11,8 +11,12 @@
 .grey {
   background-color: #eee;
 }
-.users-filter {
+.line {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+
+  .item {
+    width: 150px;
+  }
 }

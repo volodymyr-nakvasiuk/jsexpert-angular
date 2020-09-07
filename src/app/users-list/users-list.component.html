@@ -1,5 +1,5 @@
 <h2>Users List</h2>
-<div class="users-filter">
+<div class="line">
   <mat-form-field appearance="outline">
     <mat-label>Select order direction</mat-label>
     <mat-select [(value)]="orderDirection" (selectionChange)="filterUsers()">
@@ -9,16 +9,41 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field class="example-full-width" appearance="outline">
+  <mat-form-field appearance="outline">
     <mat-label>Search</mat-label>
     <input matInput placeholder="Enter User Name" [(ngModel)]="nameFilter" (keyup)="filterUsers()">
   </mat-form-field>
+</div>
+
+<div class="line">
+  <mat-form-field class="item" appearance="outline">
+    <mat-label>Login</mat-label>
+    <input matInput placeholder="Enter User Login" #newUserLogin>
+  </mat-form-field>
+
+  <mat-form-field class="item" appearance="outline">
+    <mat-label>Full Name</mat-label>
+    <input matInput placeholder="Enter Full Name"  #newUserFullName>
+  </mat-form-field>
+
+  <mat-form-field class="item" appearance="outline">
+    <mat-label>Select User Role</mat-label>
+    <mat-select #newUserRole [value]="'User'">
+      <mat-option value="User">User</mat-option>
+      <mat-option value="Admin">Admin</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="addUser(newUserLogin.value, newUserFullName.value, newUserRole.value)">
+    Add User
+  </button>
 </div>
 
 <mat-selection-list #users>
   <mat-list-option
     *ngFor="let user of usersList; let i = index"
     [ngClass]="{'grey': i%2}"
+    [value]="user.id"
   >
     <div class="user">
       <span class="user-field">
@@ -30,6 +55,15 @@
   </mat-list-option>
 </mat-selection-list>
 
-<p>
-  Options selected: {{users.selectedOptions.selected.length}}
-</p>
+<div class="line">
+  <div>
+      You selected {{users.selectedOptions.selected.length}} Users
+  </div>
+  <div>
+    <button mat-raised-button color="accent" (click)="removeUsers(users.selectedOptions.selected)">
+      Remove Users
+    </button>
+  </div>
+</div>
+
+

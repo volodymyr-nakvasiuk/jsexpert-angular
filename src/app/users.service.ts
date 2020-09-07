@@ -113,4 +113,12 @@ export class UsersService {
       .filter(user => user.name.toLocaleLowerCase().includes(filter))
       .sort((user1, user2) => order * (user1.username > user2.username ? 1 : -1));
   }
+
+  addUser(user: User): void {
+    this.usersList.unshift(user);
+  }
+
+  removeUsers(userIds: number[]): void {
+    this.usersList = this.usersList.filter(user => !userIds.includes(user.id));
+  }
 }
